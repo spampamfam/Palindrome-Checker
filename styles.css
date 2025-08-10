@@ -18,7 +18,7 @@ h1 {
 .container {
   margin: 3rem auto;
   background-color: white;
-  width: 35%;
+  max-width: 500px;
   height: 30vh;
   padding: 1rem;
   border-radius: 20px;
@@ -100,3 +100,5 @@ h2 {
     max-width: 80%;
   }
 }
+
+@media only screen and (max-);
