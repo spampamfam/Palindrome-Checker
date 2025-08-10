@@ -1,39 +1,31 @@
-//decalring elements
-
+// Declaring elements
 const submitButton = document.getElementById("check-btn");
-const userInput = document.getElementById("text-input");
+const textInput = document.getElementById("text-input");
 const resultContainer = document.getElementById("result");
-let userValue = userInput.value;
-//declare result elements dont forget
+let userValue;
 
-function normalizeInput() {
-  userValue = userInput.value.trim();
-  if (userValue) {
-    const lcString = userValue.toLowerCase();
-    console.log(lcString);
-    const finalString = lcString.replace(/[^a-zA-Z0-9]/g, "");
-    console.log(finalString);
-    reverseInput(finalString);
-    userInput.value = "";
-  } else {
+function Palindrome() {
+  if (textInput.value == "") {
     alert("Please input a value");
+    return;
   }
+  userValue = textInput.value.trim();
+  const lcString = userValue.toLowerCase();
+  const finalString = lcString.replace(/[^a-zA-Z0-9]/g, "");
+  reverseInput(finalString);
 }
 
 function reverseInput(string) {
-  const charArray = string.split("");
-  const reverseArray = charArray.reverse();
-  const reverseString = reverseArray.join("");
-  console.log(reverseString);
+  const reverseString = string.split("").reverse().join("");
   checkPali(reverseString, string);
 }
 
 function checkPali(reverseString, string) {
   if (reverseString === string) {
-    resultContainer.innerHTML = `<p class="result">${userValue} is a palindrome.</p>`;
+    resultContainer.textContent = `${userValue} is a palindrome.`;
   } else {
-    resultContainer.innerHTML = `<p class="result">${userValue} is not a palindrome.</p>`;
+    resultContainer.textContent = `${userValue} is not a palindrome.`;
   }
 }
 
-submitButton.addEventListener("click", normalizeInput);
+checkBtn.addEventListener("click", Palindrome);
